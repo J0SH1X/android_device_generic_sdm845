@@ -22,6 +22,10 @@ PRODUCT_COPY_FILES := \
     device/generic/sdm845/shared/init.sdm845.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fajita.usb.rc \
     device/generic/sdm845/shared/key_layout.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/fajita.kl
 
+#Amplifier Firmware :/
+PRODUCT_COPY_FILES := \
+    $(LOCAL_PATH)/tfa98xx.cnt:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/tfa98xx.cnt
+
 # Build generic Audio HAL
 PRODUCT_PACKAGES := audio.primary.fajita
 
