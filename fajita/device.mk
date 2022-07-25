@@ -1,3 +1,4 @@
+
 #
 # Copyright (C) 2011 The Android Open-Source Project
 #
@@ -14,17 +15,39 @@
 # limitations under the License.
 #
 
-PRODUCT_COPY_FILES := \
-    $(LOCAL_PATH)/fstab.ramdisk:$(TARGET_COPY_OUT_RAMDISK)/fstab.fajita \
-    $(LOCAL_PATH)/fstab.ramdisk:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.fajita \
-    device/generic/sdm845/shared/etc/audio.sdm845.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio.fajita.xml \
-    device/generic/sdm845/shared/init.sdm845.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fajita.rc \
-    device/generic/sdm845/shared/init.sdm845.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fajita.usb.rc \
-    device/generic/sdm845/shared/key_layout.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/fajita.kl
+
+#
+#The files wont copy over as a block of PRODUCT_COPY_FILES so copy them one by one
+#
+
+#fstab ramdisk
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/fstab.ramdisk:$(TARGET_COPY_OUT_RAMDISK)/fstab.fajita
+
+#fstab vendor
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/fstab.ramdisk:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.fajita
+
+#audio
+PRODUCT_COPY_FILES += \
+device/generic/sdm845/shared/etc/audio.sdm845.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio.fajita.xml
+
+#init sdm845
+PRODUCT_COPY_FILES += \
+device/generic/sdm845/shared/init.sdm845.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fajita.rc
+
+#init sdm845 usb
+PRODUCT_COPY_FILES += \
+device/generic/sdm845/shared/init.sdm845.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fajita.usb.rc
+
+#keylayout
+PRODUCT_COPY_FILES += \
+device/generic/sdm845/shared/key_layout.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/fajita.kl
 
 #Amplifier Firmware :/
-PRODUCT_COPY_FILES := \
-    $(LOCAL_PATH)/tfa98xx.cnt:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/tfa98xx.cnt
+PRODUCT_COPY_FILES += \
+    device/generic/sdm845/fajita/tfa98xx.cnt:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/tfa98xx.cnt
+
 
 # Build generic Audio HAL
 PRODUCT_PACKAGES := audio.primary.fajita

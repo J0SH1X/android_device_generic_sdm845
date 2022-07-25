@@ -7,7 +7,7 @@ TARGET_BOARD_PLATFORM := fajita
 TARGET_SCREEN_DENSITY := 400
 
 # Kernel/boot.img Configuration
-BOARD_KERNEL_CMDLINE     += androidboot.hardware=fajita
+BOARD_KERNEL_CMDLINE     += androidboot.hardware=fajita console=ttyGS0,115200 panic=15 pstore.backend=ramoops
 
 # Image Configuration
 BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 2998927360
